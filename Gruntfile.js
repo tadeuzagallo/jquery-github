@@ -12,7 +12,11 @@ module.exports = function(grunt) {
 				' *\n' +
 				' *  Copyright (c) <%= grunt.template.today("yyyy") %>\n' +
 				' *  MIT License\n' +
-				' */\n'
+				' */\n' +
+				'\n' +
+				';( function ( $, window, undefined ) {\n\n',
+				footer: '\n}( window.jQuery || window.Zepto, window ) );'
+
 		},
 
 		bump: {
@@ -31,7 +35,8 @@ module.exports = function(grunt) {
 
 		concat: {
 			options: {
-				banner: '<%= meta.banner %>'
+				banner: '<%= meta.banner %>',
+				footer: '<%= meta.footer %>'
 			},
 			dist: {
 				src: ['src/jquery.github.js'],

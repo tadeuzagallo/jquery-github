@@ -156,14 +156,10 @@ Github.prototype.applyTemplate = function ( repo ) {
 
 // -- Attach plugin to jQuery's prototype --------------------------------------
 
-;( function ( $, window, undefined ) {
-
-	$.fn.github = function ( options ) {
-		return this.each(function () {
-			if ( !$( this ).data( "plugin_github" ) ) {
-				$( this ).data( "plugin_github", new Github( this, options ) );
-			}
-		});
-	};
-
-}( window.jQuery || window.Zepto, window ) );
+$.fn.github = function ( options ) {
+	return this.each(function () {
+		if ( !$( this ).data( "plugin_github" ) ) {
+			$( this ).data( "plugin_github", new Github( this, options ) );
+		}
+	});
+};
